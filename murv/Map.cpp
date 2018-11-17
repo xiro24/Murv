@@ -32,10 +32,19 @@
 
 Map::Map() {
 	
-	grass = TextureManager::LoadTexture("images/pixil-frame-0.png");
-	rock = TextureManager::LoadTexture("images/pixil-frame-0.png");
-	water = TextureManager::LoadTexture("images/pixil-frame-0.png");
-	strpathg = TextureManager::LoadTexture("images/pixil-frame-0.png");
+	spriteSheet = TextureManager::LoadTexture("images/world.png");
+	
+	/*grass*/
+	spriteCell[0].x = 0;
+	spriteCell[0].y = 0;
+	spriteCell[0].w = 32;
+	spriteCell[0].h = 32;
+	
+	/*rock*/
+	spriteCell[1].x = 64;
+	spriteCell[1].y = 32;
+	spriteCell[1].w = 32;
+	spriteCell[1].h = 32;
 	
 	/*Defaults all tiles to zero*/
 	int room[24][24];
@@ -47,9 +56,7 @@ Map::Map() {
 	
 	LoadMap(room);
 	
-	src.x=src.y=0;
-	src.w=dest.w=32;
-	src.h=dest.h=32;
+	dest.w=dest.h=32;
 	dest.x=dest.y =0;
 
 }
@@ -68,20 +75,24 @@ void Map::DrawMap() {
 	for (int row =0; row <24; row++) {
 		for (int col =0 ; col <24 ; col++) {
 			type = map[row][col];
-			dest.x=col*32;
-			dest.y=row*32;
+				dest.x=col*32;
+				dest.y=row*32;
 			switch(type) {
 				case 0:
-					TextureManager::Draw(grass,src,dest);
+				/*grass*/
+					TextureManager::Draw(spriteSheet,spriteCell[0],dest);
 				break;
 				case 1:
-					TextureManager::Draw(rock,src,dest);
+				/*rock*/
+					TextureManager::Draw(spriteSheet,spriteCell[1],dest);
 				break;
 				case 2:
-					TextureManager::Draw(water,src,dest);
+				/*water*/
+					TextureManager::Draw(spriteSheet,spriteCell[0],dest);
 				break;
 				case 3:
-					TextureManager::Draw(strpathg,src,dest);
+				/*strpathg*/
+					TextureManager::Draw(spriteSheet,spriteCell[0],dest);
 				break;
 				default:
 				break;

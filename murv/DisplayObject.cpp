@@ -18,6 +18,9 @@ void DisplayObject::Update() {
 	/*xpos=86;
 	ypos=86;*/
 	
+	/*xpos++;
+	ypos++;*/
+	
 	srcRect.h = 32;
 	srcRect.w =32;
 	

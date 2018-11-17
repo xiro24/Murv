@@ -11,11 +11,9 @@ class Map {
 		
 	private:
 		
-		SDL_Rect src,dest;
-		SDL_Texture* grass;
-		SDL_Texture* rock;
-		SDL_Texture* water;
-		SDL_Texture* strpathg;
+		SDL_Rect dest;
+		SDL_Rect spriteCell[4];
+		SDL_Texture* spriteSheet;
 		
 		int map[24][24];
 };
