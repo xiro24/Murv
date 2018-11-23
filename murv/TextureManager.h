@@ -1,6 +1,6 @@
 /*texture manager*/
 #pragma once
-#include "Murv.hpp"
+#include "Display.hpp"
 
 class TextureManager {		
 	public:
